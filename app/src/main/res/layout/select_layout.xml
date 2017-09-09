@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <Button
+        android:id="@+id/stat_button"
+        android:layout_width="312dp"
+        android:layout_height="69dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <Button
+        android:id="@+id/game_init"
+        android:layout_width="314dp"
+        android:layout_height="76dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="381dp" />
+
+    <Button
+        android:id="@+id/custom_button"
+        android:layout_width="314dp"
+        android:layout_height="76dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="278dp" />
+</android.support.constraint.ConstraintLayout>

@@ -41,6 +41,28 @@ public class main_activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     setContentView(R.layout.select_layout);
+                    final Button GameChoose = (Button) findViewById(R.id.game_init);
+                    final Button StatButton = (Button) findViewById(R.id.stat_button);
+                    final Button CustomButton = (Button) findViewById(R.id.custom_button);
+                    GameChoose.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setContentView(R.layout.game_layout);
+                        }
+
+                    });
+                    StatButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setContentView(R.layout.stat_layout);
+                        }
+                    });
+                    CustomButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setContentView(R.layout.custom_layout);
+                        }
+                    });
                 }
             });
     }

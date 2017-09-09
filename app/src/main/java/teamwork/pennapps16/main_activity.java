@@ -5,6 +5,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
@@ -43,11 +45,7 @@ import com.facebook.login.LoginResult;
 import org.w3c.dom.Text;
 
 import java.util.Arrays;
-
-
-
-
-
+import java.util.logging.Handler;
 
 
 /**
@@ -58,15 +56,14 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
     //CallbackManager callbackManager;
     boolean moving = false;
     TextView pedometer;
-
+    String congrats;
     SensorManager sensorManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+        congrats = "you got a reward!";
         //FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.main_layout);
 
@@ -165,16 +162,29 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
 
         } else {
-            Toast.makeText(this, "Sensor not found...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sensor not found...", Toast.LENGTH_LONG).show();
+            /*new CountDownTimer(60000, 6000) {
+                int inCount = 6;
+
+                public void onTick(long millisUntilFinished) {
+
+                    pedometer.setText(String.valueOf(60000-millisUntilFinished / 1000));
+                    // inCount--;
+                }
+
+                public void onFinish() {
+                    pedometer.setText(congrats);
+
+                }
+                */
+
+
+            };
+
         }
     }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        //sensorManager.unregisterListener(this);
-        moving=false;
 
-    }
+    
 
 
    /* @Override
@@ -182,4 +192,4 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }*/
-}
+

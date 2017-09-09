@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
     <Button
         android:id="@+id/stat_button"
         android:layout_width="0dp"
@@ -58,6 +59,3 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp" />
 </android.support.constraint.ConstraintLayout>
-=======
-</LinearLayout>
->>>>>>> parent of 224aefc... Set up for continuation

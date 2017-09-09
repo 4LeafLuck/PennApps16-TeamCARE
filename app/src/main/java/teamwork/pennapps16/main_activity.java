@@ -56,27 +56,20 @@ import java.util.Arrays;
 
 public class main_activity extends AppCompatActivity implements SensorEventListener {
     //CallbackManager callbackManager;
-
+    final SharedPreferences mPrefs = getSharedPreferences("win/loss", 0);
+    final String winLoss = mPrefs.getString("StudyTag", "Unknown");
+    int value = 0;
+    String congrats = "You've earned a gift for your avatar";
+    final TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
     protected void onCreate(Bundle savedInstanceState) {
         //FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.main_layout);
+
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.main_layout);
         final TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
-
-
-       // final LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        //callbackManager = CallbackManager.Factory.create();
-        //final TextView loginReport = (TextView) findViewById(R.id.login_log) ;
-
-
-
-
-
 
         final TextView Title = (TextView) findViewById(R.id.title_main);
         final Button StartButton = (Button) findViewById(R.id.start_button);
-        final Button logIn = (Button) findViewById(R.id.login_button);
             StartButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,33 +82,31 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                         @Override
                         public void onClick(View v) {
                             setContentView(R.layout.game_layout);
-                            Button challButton = (Button) findViewById(R.id.challenge_start);
+                            //Button challButton = (Button) findViewById(R.id.challenge_start);
                             final SensorManager sensorManager;
                             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
-                            challButton.setOnClickListener(new View.OnClickListener() {
+
+                            final TextView counter = (TextView) findViewById(R.id.countdown);
+                            Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+                            sensorManager.registerListener(new SensorEventListener() {
                                 @Override
-                                public void onClick(View v) {
-                                    Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-                                    if(countSensor!=null){
-
-                                        sensorManager.registerListener(new SensorEventListener() {
-                                            @Override
-                                            public void onSensorChanged(SensorEvent event) {
-                                                pedometer.setText(String.valueOf(event.values[0]));
-                                            }
-
-                                            @Override
-                                            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-                                            }
-                                        }, countSensor, SensorManager.SENSOR_DELAY_UI);
+                                public void onSensorChanged(SensorEvent event) {
 
 
-
-                                    }
                                 }
-                            });
+
+                                @Override
+                                public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+                                }
+                            }, countSensor, SensorManager.SENSOR_DELAY_UI);
+                            if (value >= 10000) {
+                                counter.setText(congrats);
+                                SharedPreferences.Editor mEditor = mPrefs.edit();
+                                mEditor.putString("winLoss", "Win").commit();
+                            }
+
 
                         }
 
@@ -148,13 +139,16 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
+        pedometer.setText(String.valueOf(event.values[0]));
+        value++;
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+
 
 
    /* @Override

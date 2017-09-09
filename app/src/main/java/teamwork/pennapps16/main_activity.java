@@ -57,7 +57,8 @@ import java.util.Arrays;
 public class main_activity extends AppCompatActivity implements SensorEventListener {
     //CallbackManager callbackManager;
     boolean moving = false;
-    final TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
+    TextView pedometer;
+
     SensorManager sensorManager;
 
 
@@ -70,6 +71,7 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
         setContentView(R.layout.main_layout);
 
         TextView counter = (TextView) findViewById(R.id.countdown);
+        TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
 
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -169,8 +171,7 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
     @Override
     protected void onPause(){
         super.onPause();
-
-        sensorManager.unregisterListener(this);
+        //sensorManager.unregisterListener(this);
         moving=false;
 
     }

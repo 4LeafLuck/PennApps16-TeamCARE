@@ -58,7 +58,12 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
     TextView pedometer;
     String congrats;
     SensorManager sensorManager;
-
+    Button DeveloperButton;
+    final SharedPreferences mPrefs = getSharedPreferences("win/lose", 0);
+    final String winLose = mPrefs.getString("win/lose", "Unknown");
+    TextView winTitle;
+    TextView accessoryInfo;
+    String sorry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +73,11 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
         setContentView(R.layout.main_layout);
 
         TextView counter = (TextView) findViewById(R.id.countdown);
-        TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
+        pedometer = (TextView) findViewById(R.id.pedometer_text);
+        DeveloperButton = (Button) findViewById(R.id.developer_button);
+        winTitle = (TextView) findViewById(R.id.win_title);
+        accessoryInfo = (TextView) findViewById(R.id.prize_text);
+        sorry = "Sorry, you haven't won any accessories";
 
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -108,6 +117,13 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                                // }
 
                             //});
+                        DeveloperButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                SharedPreferences.Editor mEditor = mPrefs.edit();
+                                mEditor.putString("win/lose", "win").apply();
+                            }
+                        });
 
 
                         }
@@ -117,6 +133,12 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                         @Override
                         public void onClick(View v) {
                             setContentView(R.layout.stat_layout);
+                            if(winLose == "win"){
+                                accessoryInfo.setText(congrats);
+                            }else{
+                                accessoryInfo.setText(sorry);
+                            }
+
                         }
                     });
                     CustomButton.setOnClickListener(new View.OnClickListener() {
@@ -184,7 +206,7 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
         }
     }
 
-    
+
 
 
    /* @Override

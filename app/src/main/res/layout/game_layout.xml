@@ -21,34 +21,53 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintVertical_bias="0.111" />
 
     <TextView
         android:id="@+id/countdown"
         android:layout_width="131dp"
         android:layout_height="93dp"
-        android:layout_marginBottom="40dp"
         android:text="10000"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/challenge_start"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_editor_absoluteY="332dp" />
 
-    <Button
-        android:id="@+id/challenge_start"
+    <TextView
+        android:id="@+id/StepTitle"
+        android:layout_width="163dp"
+        android:layout_height="40dp"
+        android:text="CurrentSteps"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <TextView
+        android:id="@+id/goal_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start!"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="46dp"
-        app:layout_constraintLeft_toLeftOf="@+id/countdown"
-        android:layout_marginLeft="20dp" />
+        android:text="Goal"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <Button
+        android:id="@+id/developer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developer Button"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="447dp" />
+
 </android.support.constraint.ConstraintLayout>

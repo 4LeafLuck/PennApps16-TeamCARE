@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</RelativeLayoutLayout>
+    <TextView
+        android:id="@+id/win_title"
+        android:layout_width="171dp"
+        android:layout_height="40dp"
+        android:text="Win Streak"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <TextView
+        android:id="@+id/prize_text"
+        android:layout_width="235dp"
+        android:layout_height="59dp"
+        android:text="Sorry, you haven't won any accessories..."
+        android:textAlignment="center"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="203dp" />
+</android.support.constraint.ConstraintLayout>

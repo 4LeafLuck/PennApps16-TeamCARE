@@ -56,13 +56,24 @@ import java.util.Arrays;
 
 public class main_activity extends AppCompatActivity implements SensorEventListener {
     //CallbackManager callbackManager;
+    boolean moving = false;
+    final TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
+    SensorManager sensorManager;
 
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.main_layout);
         super.onCreate(savedInstanceState);
 
-        final TextView pedometer = (TextView) findViewById(R.id.pedometer_text);
+
+        //FacebookSdk.sdkInitialize(getApplicationContext());
+        setContentView(R.layout.main_layout);
+
+        TextView counter = (TextView) findViewById(R.id.countdown);
+
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
 
 
        // final LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
@@ -88,34 +99,17 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                     GameChoose.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            setContentView(R.layout.game_layout);
-                            Button challButton = (Button) findViewById(R.id.challenge_start);
-                            final SensorManager sensorManager;
-                            sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+                     setContentView(R.layout.game_layout);
+                            //Button challButton = (Button) findViewById(R.id.challenge_start);
 
-                            challButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-                                    if(countSensor!=null){
+                            //challButton.setOnClickListener(new View.OnClickListener() {
+                              //  @Override
+                                //public void onClick(View v) {
 
-                                        sensorManager.registerListener(new SensorEventListener() {
-                                            @Override
-                                            public void onSensorChanged(SensorEvent event) {
-                                                pedometer.setText(String.valueOf(event.values[0]));
-                                            }
+                               // }
 
-                                            @Override
-                                            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                            //});
 
-                                            }
-                                        }, countSensor, SensorManager.SENSOR_DELAY_UI);
-
-
-
-                                    }
-                                }
-                            });
 
                         }
 
@@ -148,11 +142,36 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
+        if(moving){
+            pedometer.setText(String.valueOf(event.values[0]));
+        }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        moving = true;
+
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        if(countSensor!=null){
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+
+        } else {
+            Toast.makeText(this, "Sensor not found...", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+
+        sensorManager.unregisterListener(this);
+        moving=false;
 
     }
 

@@ -1,5 +1,7 @@
 package teamwork.pennapps16;
-
+import android.hardware.SensorEvent;
+import 	android.hardware.SensorManager;
+import android.hardware.SensorEventListener;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -25,16 +27,24 @@ import java.lang.Object;
 import android.provider.AlarmClock;
 import android.content.SharedPreferences;
 import java.io.File;
-
+import 	android.hardware.Sensor;
+import android.content.Context;
+import android.os.Bundle;
 
 /**
  * Created by Libby on 9/9/17.
  */
 
-public class main_activity extends AppCompatActivity {
+public class main_activity extends AppCompatActivity  {
+    SensorManager sensorManager;
+    TextView Steps = (TextView) findViewById(R.id.counter);
+    boolean walking = false;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+
         final TextView Title = (TextView) findViewById(R.id.title_main);
         final Button StartButton = (Button) findViewById(R.id.start_button);
             StartButton.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +58,18 @@ public class main_activity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             setContentView(R.layout.game_layout);
+
+
+
                         }
 
                     });
+
+
+
+
+
+
                     StatButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

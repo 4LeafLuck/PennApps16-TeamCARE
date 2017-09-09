@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/counter"
-        android:layout_width="194dp"
-        android:layout_height="117dp"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="100sp"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="197dp" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -33,10 +33,10 @@ import java.io.File;
 
 public class main_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
-        final TextView Title = (TextView) findViewById(R.id.title_main);
-        final Button StartButton = (Button) findViewById(R.id.start_button);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+        final TextView Title = (TextView) findViewById(R.id.title_main);
+        final Button StartButton = (Button) findViewById(R.id.start_button);
             StartButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

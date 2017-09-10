@@ -69,6 +69,27 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
     TextView congratsTitle;
     TextView congratsText;
     Button Go;
+    ImageView bodyDark;
+    ImageView bodyLight;
+    ImageView bodyMedium;
+    ImageView brows;
+    ImageView faceFN;
+    ImageView faceFS;
+    ImageView faceMN;
+    ImageView faceMS;
+    ImageView hairFBlack;
+    ImageView hairFBlonde;
+    ImageView hairFBrown;
+    ImageView hairMBlack;
+    ImageView hairMBlonde;
+    ImageView hairMBrown;
+    ImageView shirtF;
+    ImageView shirtM;
+    ImageView shoes;
+    ImageView shorts;
+    Button change;
+    ImageView Blonde;
+    ImageView Black;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,44 +108,27 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
         accessoryInfo = (TextView) findViewById(R.id.prize_text);
         congratsTitle = (TextView) findViewById(R.id.congrats_title);
         congratsText = (TextView) findViewById(R.id.congrats_text);
+        bodyLight = (ImageView)findViewById(R.id.bodylight);
+        brows = (ImageView)findViewById(R.id.brows);
+        faceFN = (ImageView)findViewById(R.id.facefemaleneutral);
+        hairFBlack = (ImageView)findViewById(R.id.hairfemaleblack);
+        hairFBlonde = (ImageView)findViewById(R.id.hairfemaleblonde);
+        hairFBrown = (ImageView)findViewById(R.id.hairfemalebrown);
 
-        ImageView bodyDark = (ImageView)findViewById(R.id.bodydark);
-        ImageView bodyLight = (ImageView)findViewById(R.id.bodylight);
-        ImageView bodyMedium = (ImageView)findViewById(R.id.bodymedium);
-        ImageView brows = (ImageView)findViewById(R.id.brows);
-        ImageView faceFN = (ImageView)findViewById(R.id.facefemaleneutral);
-        ImageView faceFS = (ImageView)findViewById(R.id.facefemalesmile);
-        ImageView faceMN = (ImageView)findViewById(R.id.facemaleneutral);
-        ImageView faceMS = (ImageView)findViewById(R.id.facemalesmile);
-        ImageView hairFBlack = (ImageView)findViewById(R.id.hairfemaleblack);
-        ImageView hairFBlonde = (ImageView)findViewById(R.id.hairfemaleblonde);
-        ImageView hairFBrown = (ImageView)findViewById(R.id.hairfemalebrown);
-        ImageView hairMBlack = (ImageView)findViewById(R.id.hairmaleblack);
-        ImageView hairMBlonde = (ImageView)findViewById(R.id.hairmaleblonde);
-        ImageView hairMBrown = (ImageView)findViewById(R.id.hairmalebrown);
-        ImageView shirtF = (ImageView)findViewById(R.id.shirtfemale);
-        ImageView shirtM = (ImageView)findViewById(R.id.shirtmale);
-        ImageView shoes = (ImageView)findViewById(R.id.shoes);
-        ImageView shorts = (ImageView)findViewById(R.id.shorts);
 
-        bodyDark.setVisibility(View.INVISIBLE);
-        bodyLight.setVisibility(View.VISIBLE);
-        bodyMedium.setVisibility(View.INVISIBLE);
-        brows.setVisibility(View.VISIBLE);
-        faceFN.setVisibility(View.VISIBLE);
-        faceFS.setVisibility(View.INVISIBLE);
-        faceMN.setVisibility(View.INVISIBLE);
-        faceMS.setVisibility(View.INVISIBLE);
-        hairFBlack.setVisibility(View.VISIBLE);
-        hairFBlonde.setVisibility(View.INVISIBLE);
-        hairFBrown.setVisibility(View.INVISIBLE);
-        hairMBlack.setVisibility(View.INVISIBLE);
-        hairMBlonde.setVisibility(View.INVISIBLE);
-        hairMBrown.setVisibility(View.INVISIBLE);
-        shirtF.setVisibility(View.VISIBLE);
-        shirtM.setVisibility(View.INVISIBLE);
-        shoes.setVisibility(View.VISIBLE);
-        shorts.setVisibility(View.VISIBLE);
+        shoes = (ImageView)findViewById(R.id.shoes);
+
+        change = (Button)findViewById(R.id.change_button);
+        shoes.setVisibility(View.GONE);
+
+
+
+        //hairFBlonde.setVisibility(View.INVISIBLE);
+
+        shirtF = (ImageView)findViewById(R.id.shirtfemale);
+
+        shorts = (ImageView)findViewById(R.id.shorts);
+
 
 
         //sorry = "Sorry, you haven't won any accessories";
@@ -209,7 +213,7 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                             public void onClick(View v) {
                                 //win=+1;
                                 SharedPreferences.Editor aEditor = aPrefs.edit();
-                                aEditor.putBoolean("winTag", true).apply();
+                                aEditor.putBoolean("winTag", false).apply();
 
                                 //SharedPreferences.Editor mEditor = mPrefs.edit();
                                 //mEditor.putString("win/lose_tag", "win").apply();
@@ -237,7 +241,34 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                     CustomButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            setContentView(R.layout.custom_layout);
+
+                            //change.setEnabled(false);
+
+
+
+                            if (WinLose){
+                                //change.setEnabled(true);
+                                //shoes.setVisibility(View.VISIBLE);
+                                //Blonde.setVisibility(View.VISIBLE);
+                                //Black = (ImageView)findViewById(R.id.hairfemaleblack2);
+                                setContentView(R.layout.custom_layout_2);
+                            }
+                            else{
+                                setContentView(R.layout.custom_layout);
+                                Blonde = (ImageView)findViewById(R.id.hairfemaleblonde2);
+
+                                //shoes.setVisibility(View.GONE);
+                                shoes.setVisibility(View.GONE);
+                            }
+                            /*change.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    //shoes.setVisibility(View.VISIBLE);
+
+                                }*/
+
+                           // });
                         }
                     });
 
@@ -298,13 +329,10 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
 
         }
     }
-
-
-
-
-   /* @Override
+ /* @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }*/
+
 

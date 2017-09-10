@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/bodylight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/brows"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/facefemaleneutral"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairfemaleblack"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+
+        />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairfemaleblonde"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shirtfemale"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        tools:layout_editor_absoluteY="-7dp"
+        android:layout_width="0dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shoes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        tools:layout_editor_absoluteY="-8dp"
+        android:layout_width="0dp"
+        android:layout_height="503dp"
+        android:src="@drawable/shorts"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <Button
+        android:id="@+id/button2"
+        tools:layout_editor_absoluteY="-8dp"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:text="Change"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0" />
+</android.support.constraint.ConstraintLayout>

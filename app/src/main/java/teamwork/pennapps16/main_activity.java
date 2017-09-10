@@ -137,12 +137,12 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                                     }*/
 
 
-                                    new CountDownTimer(100000000,250000){
+                                    new CountDownTimer(7000,100){
                                         int inCount = 60;
 
                                         public void onTick(long millisUntilFinished){
 
-                                            pedometer.setText(String.valueOf(100000000-millisUntilFinished/1000));
+                                            pedometer.setText(String.valueOf(7000-millisUntilFinished/1000));
                                             // inCount--;
                                         }
 

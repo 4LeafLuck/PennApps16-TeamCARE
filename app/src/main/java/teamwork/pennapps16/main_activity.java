@@ -54,30 +54,42 @@ import java.util.logging.Handler;
 
 public class main_activity extends AppCompatActivity implements SensorEventListener {
     //CallbackManager callbackManager;
-    boolean moving = false;
+    boolean moving;
     TextView pedometer;
     String congrats;
     SensorManager sensorManager;
     Button DeveloperButton;
-    final SharedPreferences mPrefs = getSharedPreferences("win/lose", 0);
-    final String winLose = mPrefs.getString("win/lose", "Unknown");
+
     TextView winTitle;
     TextView accessoryInfo;
     String sorry;
-
+    //int win;
+    TextView congratsTitle;
+    TextView congratsText;
+    Button Go;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        congrats = "you got a reward!";
+        final SharedPreferences aPrefs = getSharedPreferences("WinLose", 0);
+        final Boolean WinLose = aPrefs.getBoolean("winTag", false);
         //FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.main_layout);
-
+        /*final SharedPreferences mPrefs = getSharedPreferences("winLose", 0);
+        final String winLose = mPrefs.getString("win/lose_tag", "Unknown");*/
+        //win=1;
+       // congrats = "you got a reward!";
         TextView counter = (TextView) findViewById(R.id.countdown);
-        pedometer = (TextView) findViewById(R.id.pedometer_text);
-        DeveloperButton = (Button) findViewById(R.id.developer_button);
+
+
         winTitle = (TextView) findViewById(R.id.win_title);
         accessoryInfo = (TextView) findViewById(R.id.prize_text);
-        sorry = "Sorry, you haven't won any accessories";
+        congratsTitle = (TextView) findViewById(R.id.congrats_title);
+        congratsText = (TextView) findViewById(R.id.congrats_text);
+
+
+
+        //sorry = "Sorry, you haven't won any accessories";
+        moving = false;
 
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -107,7 +119,42 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                     GameChoose.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                     setContentView(R.layout.game_layout);
+                            setContentView(R.layout.game_layout);
+                            DeveloperButton = (Button) findViewById(R.id.developer_button);
+                            Go = (Button) findViewById(R.id.go_button);
+
+                            Go.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    pedometer = (TextView) findViewById(R.id.pedometer_text);
+                                   /* for (int i = 0; i < 100; i++) {
+                                        try {
+                                            pedometer.setText(i);
+
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }*/
+
+
+                                    new CountDownTimer(100000000,250000){
+                                        int inCount = 60;
+
+                                        public void onTick(long millisUntilFinished){
+
+                                            pedometer.setText(String.valueOf(100000000-millisUntilFinished/1000));
+                                            // inCount--;
+                                        }
+
+                                        public void onFinish(){
+
+                                            SharedPreferences.Editor aEditor = aPrefs.edit();
+                                            aEditor.putBoolean("winTag", true).apply();
+                                        }
+                                    }.start();
+                                }
+                            });
+
                             //Button challButton = (Button) findViewById(R.id.challenge_start);
 
                             //challButton.setOnClickListener(new View.OnClickListener() {
@@ -117,11 +164,17 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                                // }
 
                             //});
+
                         DeveloperButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                SharedPreferences.Editor mEditor = mPrefs.edit();
-                                mEditor.putString("win/lose", "win").apply();
+                                //win=+1;
+                                SharedPreferences.Editor aEditor = aPrefs.edit();
+                                aEditor.putBoolean("winTag", true).apply();
+
+                                //SharedPreferences.Editor mEditor = mPrefs.edit();
+                                //mEditor.putString("win/lose_tag", "win").apply();
+
                             }
                         });
 
@@ -132,11 +185,12 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
                     StatButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            setContentView(R.layout.stat_layout);
-                            if(winLose == "win"){
-                                accessoryInfo.setText(congrats);
+
+
+                          if(WinLose){
+                               setContentView(R.layout.win_layout);
                             }else{
-                                accessoryInfo.setText(sorry);
+                               setContentView(R.layout.stat_layout);
                             }
 
                         }

@@ -24,6 +24,7 @@ import android.widget.Chronometer;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import com.facebook.*;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import android.graphics.drawable.Drawable;
 
 import org.w3c.dom.Text;
 
@@ -86,6 +88,43 @@ public class main_activity extends AppCompatActivity implements SensorEventListe
         congratsTitle = (TextView) findViewById(R.id.congrats_title);
         congratsText = (TextView) findViewById(R.id.congrats_text);
 
+        ImageView bodyDark = (ImageView)findViewById(R.id.bodydark);
+        ImageView bodyLight = (ImageView)findViewById(R.id.bodylight);
+        ImageView bodyMedium = (ImageView)findViewById(R.id.bodymedium);
+        ImageView brows = (ImageView)findViewById(R.id.brows);
+        ImageView faceFN = (ImageView)findViewById(R.id.facefemaleneutral);
+        ImageView faceFS = (ImageView)findViewById(R.id.facefemalesmile);
+        ImageView faceMN = (ImageView)findViewById(R.id.facemaleneutral);
+        ImageView faceMS = (ImageView)findViewById(R.id.facemalesmile);
+        ImageView hairFBlack = (ImageView)findViewById(R.id.hairfemaleblack);
+        ImageView hairFBlonde = (ImageView)findViewById(R.id.hairfemaleblonde);
+        ImageView hairFBrown = (ImageView)findViewById(R.id.hairfemalebrown);
+        ImageView hairMBlack = (ImageView)findViewById(R.id.hairmaleblack);
+        ImageView hairMBlonde = (ImageView)findViewById(R.id.hairmaleblonde);
+        ImageView hairMBrown = (ImageView)findViewById(R.id.hairmalebrown);
+        ImageView shirtF = (ImageView)findViewById(R.id.shirtfemale);
+        ImageView shirtM = (ImageView)findViewById(R.id.shirtmale);
+        ImageView shoes = (ImageView)findViewById(R.id.shoes);
+        ImageView shorts = (ImageView)findViewById(R.id.shorts);
+
+        bodyDark.setVisibility(View.INVISIBLE);
+        bodyLight.setVisibility(View.VISIBLE);
+        bodyMedium.setVisibility(View.INVISIBLE);
+        brows.setVisibility(View.VISIBLE);
+        faceFN.setVisibility(View.VISIBLE);
+        faceFS.setVisibility(View.INVISIBLE);
+        faceMN.setVisibility(View.INVISIBLE);
+        faceMS.setVisibility(View.INVISIBLE);
+        hairFBlack.setVisibility(View.VISIBLE);
+        hairFBlonde.setVisibility(View.INVISIBLE);
+        hairFBrown.setVisibility(View.INVISIBLE);
+        hairMBlack.setVisibility(View.INVISIBLE);
+        hairMBlonde.setVisibility(View.INVISIBLE);
+        hairMBrown.setVisibility(View.INVISIBLE);
+        shirtF.setVisibility(View.VISIBLE);
+        shirtM.setVisibility(View.INVISIBLE);
+        shoes.setVisibility(View.VISIBLE);
+        shorts.setVisibility(View.VISIBLE);
 
 
         //sorry = "Sorry, you haven't won any accessories";

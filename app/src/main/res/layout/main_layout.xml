@@ -39,4 +39,147 @@
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="55dp"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+    android:id="@+id/bodydark"
+    android:layout_width="326dp"
+    android:layout_height="502dp"
+    android:src="@drawable/bodydark"
+    tools:layout_editor_absoluteX="29dp"
+    tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/bodylight"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/bodylight"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/bodymedium"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/bodymedium"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/brows"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/brows"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/facefemaleneutral"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/facefemaleneutral"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/facefemalesmile"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/facefemalesmile"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/facemaleneutral"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/facemaleneutral"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/facemalesmile"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/facemalesmile"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairfemaleblack"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairfemaleblack"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairfemaleblonde"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairfemaleblonde"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairfemalebrown"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairfemalebrown"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairmaleblack"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairmaleblack"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairmaleblonde"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairmaleblonde"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/hairmalebrown"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/hairmalebrown"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/shirtfemale"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shirtfemale"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/shirtmale"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shirtmale"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/shoes"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shoes"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/shorts"
+        android:layout_width="326dp"
+        android:layout_height="502dp"
+        android:src="@drawable/shorts"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
